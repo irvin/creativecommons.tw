@@ -1,0 +1,62 @@
+# creativecommons.tw 封存
+
+## todo
+
+- [ ] 重新下載 *.delayed 檔案
+- [ ] 重新下載 zero_bytes_url.txt 的檔案
+- [ ] 列出所有的頁面目錄與標題清單
+- [ ] files/downloads/ 下的檔案實在太大了，要想辦法另行處理
+- [ ] 把檔案中的外部資源內部化
+- [ ] 刪除沒有附檔名，但是有同名 .html 檔案的檔案
+- [x] 如果 `<TITLE>Page has moved</TITLE>` 頁面有對應的 .html 檔案，就將其移除
+- [x] 把所有的 page not found 刪除
+- [x] 修正變成 0 Bytes 的檔案
+- [x] feed 要改名叫 feed.xml
+- [x] 移除 <script>jQuery.extend(Drupal.settings...</script> 標籤
+- [x] 修正檔案內連結的 css 變成 html
+- [x] 列出所有的 binary 檔案清單並且抓取
+- [x] 內容有「Click here...」的頁面是沒有成功抓到的頁面
+
+## 建立鏡像流程
+
+### 在 mac 上安裝 httrack
+
+```bash
+➜  ~ brew install httrack
+```
+
+### Mirror
+
+```bash
+httrack "https://creativecommons.tw" \
+  -O "creativecommons.tw" \
+  -v \
+  --display \
+  --robots=0 \
+  --retries=3 \
+  --depth=10 \
+  --continue \
+  --update \
+  --sockets=4 \
+  '-*.pdf' '-*.zip' '-*.webm' '-*.mp4' '-*.odp' '-*.ppt' \
+  '-*web.archive.org*'
+```
+
+### 看到 binary 的策略
+
+1. 第一次先抓 html
+2. 第二次再從 hts-cache/new.txt 抓 binary
+
+用 sftp 進去主機找該檔案，另外下載後置入，於 httrack.sh 手動排除該路徑
+
+### binary 檔案位置
+
+```text
+
+```
+
+## 頁面清單
+
+```text
+
+```
