@@ -7,6 +7,8 @@
 - [ ] 列出所有的頁面目錄與標題清單
 - [ ] 把檔案中的外部資源內部化
 - [ ] 刪除沒有附檔名，但是有同名 .html 檔案的檔案
+- [ ] 把頁面中到 http(s)?://creativecommons.tw 的連結改成相對連結
+- [x] 設定 git-pages repo 並將 /creativecommons.tw/creativecommons.tw 搬移到根目錄下以便打開 github pages
 - [x] files/downloads/ 下的檔案實在太大了，透過 Git LFS 上傳
 - [x] 如果 `<TITLE>Page has moved</TITLE>` 頁面有對應的 .html 檔案，就將其移除
 - [x] 把所有的 page not found 刪除
@@ -28,18 +30,7 @@
 ### Mirror
 
 ```bash
-httrack "https://creativecommons.tw" \
-  -O "creativecommons.tw" \
-  -v \
-  --display \
-  --robots=0 \
-  --retries=3 \
-  --depth=10 \
-  --continue \
-  --update \
-  --sockets=4 \
-  '-*.pdf' '-*.zip' '-*.webm' '-*.mp4' '-*.odp' '-*.ppt' \
-  '-*web.archive.org*'
+./httrack.sh
 ```
 
 ### 看到 binary 的策略
