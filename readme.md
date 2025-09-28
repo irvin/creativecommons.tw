@@ -8,6 +8,7 @@
 - [ ] 把檔案中的外部資源內部化
 - [ ] 刪除沒有附檔名，但是有同名 .html 檔案的檔案
 - [ ] 把頁面中到 http(s)?://creativecommons.tw 的連結改成相對連結
+- [x] 刪除 <title>40x 的 HTML 檔案
 - [x] 設定 git-pages repo 並將 /creativecommons.tw/creativecommons.tw 搬移到根目錄下以便打開 github pages
 - [x] files/downloads/ 下的檔案實在太大了，透過 Git LFS 上傳
 - [x] 如果 `<TITLE>Page has moved</TITLE>` 頁面有對應的 .html 檔案，就將其移除
